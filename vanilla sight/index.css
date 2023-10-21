@@ -1,0 +1,257 @@
+/* setting up and using custom imported font. */
+@font-face {
+  font-family: Inter-Bold;
+  src: url(/assets/fonts/static/Inter-Bold.ttf);
+}
+@font-face {
+  font-family: Inter-ExtraBold;
+  src: url(/assets/fonts/static/Inter-ExtraBold.ttf);
+}
+@font-face {
+  font-family: Inter-Regular;
+  src: url(/assets/fonts/static/Inter-Regular.ttf);
+}
+/* set padding and margins for the entire page */
+* {
+  padding: 0;
+  margin: 0;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+p {
+  font-family: Inter-Regular;
+  color: hsl(236, 13%, 42%);
+  font-size: 15px;
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.article-container {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1.5rem;
+  justify-content: center;
+  grid-template-areas: "main_img", "bright_future", "new_side", "retro",
+    "laptop", "growth";
+}
+.main_img {
+  grid-area: main_img;
+}
+.bright_future {
+  grid-area: bright_future;
+}
+.new_side {
+  grid-area: new_side;
+  /* align-content: center; */
+  background-color: black;
+  color: hsl(36, 100%, 99%);
+}
+.retro {
+  grid: retro;
+}
+.laptop {
+  grid: laptop;
+}
+.growth {
+  grid: growth;
+}
+
+/* set the image displayed for mobile and desktop.
+also set the nav menu for desktop and the hambergur menu for mobile */
+@media screen and (max-width: 600px) {
+  .nav_container {
+    display: none;
+  }
+  .mobile_menu {
+    display: flex;
+  }
+  .mobile_img {
+    width: auto;
+    height: 300px;
+  }
+  .desktop_img {
+    display: none;
+  }
+  .article-container {
+    /* margin-left: 5rem;
+    margin-right: 5rem; */
+    grid-template-areas:
+      "main_img"
+      "bright_future" "new_side"
+      "retro" "laptop" "growth";
+  }
+  .bright_future {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 180px 100px 50px;
+  }
+  .bright_future > p {
+    grid-column: span 4;
+    grid-row: 2;
+    text-align: left;
+    padding-top: 0.5rem;
+  }
+  .bright_future > div {
+    grid-column: span 2;
+    grid-row: 3;
+    background-color: hsl(5, 85%, 63%);
+    color: hsl(36, 100%, 99%);
+    font-family: Inter-Regular;
+    font-weight: 700;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    text-align: center;
+  }
+  .bright_future > h1 {
+    grid-column: span 4;
+    grid-row: 1;
+    font-size: 3rem;
+    font-family: Inter-Bold;
+  }
+  .new_side {
+    margin-top: 3em;
+  }
+  .heading {
+    font-family: Inter-Bold;
+    align-self: center;
+    font-size: 2rem;
+    padding-top: 1em;
+    padding-left: 0.5rem;
+    color: hsl(35, 77%, 62%);
+  }
+  .article {
+    border-bottom: solid 1px hsl(236, 13%, 42%);
+  }
+
+  .article > h4 {
+    font-family: Inter-Bold;
+    font-size: 1.2rem;
+    padding-top: 1.5em;
+  }
+  .article > p {
+    font-size: 1rem;
+    align-self: center;
+    padding-top: 0.8em;
+    padding-bottom: 1.5em;
+  }
+  .article2_container {
+    display: flex;
+  }
+  .article2_img {
+    width: 100%;
+    height: auto;
+  }
+  .article2_number {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+@media screen and (min-width: 600px) {
+  .nav_container {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    padding: 0.5rem;
+    font-weight: 400;
+    color: hsl(236, 13%, 42%);
+  }
+  .mobile_menu {
+    display: none;
+  }
+  .desktop_img {
+    width: 100%;
+    height: auto;
+  }
+  .mobile_img {
+    display: none;
+  }
+  .header_container {
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
+  .article-container {
+    margin-left: 5rem;
+    margin-right: 5rem;
+    grid-template-areas:
+      "main_img main_img new_side"
+      "bright_future bright_future new_side"
+      "retro laptop growth";
+  }
+  .bright_future {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 1fr;
+  }
+  .bright_future > p {
+    grid-column: 5 / span 5;
+    text-align: left;
+    padding-top: 0.5rem;
+  }
+  .bright_future > div {
+    grid-column: 5 / span 2;
+    background-color: hsl(5, 85%, 63%);
+    color: hsl(36, 100%, 99%);
+    font-family: Inter-Regular;
+    font-weight: 700;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    text-align: center;
+  }
+  .bright_future > h1 {
+    grid-column: 1 / span 4;
+    grid-row: 1 / span 2;
+    font-size: 3rem;
+    font-family: Inter-Bold;
+  }
+  .heading {
+    font-family: Inter-Bold;
+    align-self: center;
+    font-size: 2rem;
+    padding-left: 0.5rem;
+    color: hsl(35, 77%, 62%);
+  }
+  .article {
+    border-bottom: solid 1px hsl(236, 13%, 42%);
+  }
+
+  .article > h4 {
+    font-family: Inter-Bold;
+    font-size: 1.2rem;
+    padding-top: 1.5em;
+  }
+  .article > p {
+    font-size: 1rem;
+    align-self: center;
+    padding-top: 0.8em;
+    padding-bottom: 1.5em;
+  }
+}
+.new_side {
+  display: grid;
+  grid-template-rows: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+/* .retro_computer {
+  width: 50%;
+  height: auto;
+} */
+.laptop_img {
+  width: 50%;
+  height: auto;
+}
+.growth_img {
+  width: 50%;
+  height: auto;
+}
